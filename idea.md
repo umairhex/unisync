@@ -20,6 +20,16 @@ A student opens the app, adds their courses, drags them onto the time grid, veri
 
 ---
 
+## Tech Stack
+
+- **Frontend**: React, Vite, TypeScript
+- **Styling**: Tailwind CSS, Radix UI
+- **State Management**: React state
+- **Components & Libraries**: Lucide React, Next Themes, Sonner, TipTap, DND Kit, React Router
+- **Architecture**: Client-side only (zero backend)
+
+---
+
 ## Key Features
 
 ### Course Management
