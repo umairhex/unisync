@@ -7,6 +7,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useDraggable } from "@dnd-kit/core";
 import { cn } from "@/lib/utils";
+import { EditCourseModal } from "@/components/EditCourseModal";
 import type { Course } from "@/types";
 import { ICON_SIZES } from "@/constants/design-tokens";
 
@@ -15,16 +16,21 @@ type ViewMode = "list" | "grid" | "compact";
 interface CourseListProps {
   courses: Course[];
   onDeleteCourse?: (course: Course) => void;
+  onEditCourse?: (courseId: string, updates: Partial<Omit<Course, "id">>) => void;
 }
 
 const DraggableCourseItem = memo(function DraggableCourseItem({
   course,
   viewMode,
+  courses,
   onDelete,
+  onEdit,
 }: {
   course: Course;
   viewMode: ViewMode;
+  courses: Course[];
   onDelete?: (course: Course) => void;
+  onEdit?: (courseId: string, updates: Partial<Omit<Course, "id">>) => void;
 }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `course-${course.id}`,
@@ -160,7 +166,12 @@ const DraggableCourseItem = memo(function DraggableCourseItem({
               {course.name}
             </span>
           </div>
-          <div className="flex items-center gap-1 shrink-0">
+          <div className="flex items-center gap-1 shrink-0 group">
+            <EditCourseModal
+              course={course}
+              allCourses={courses}
+              onUpdateCourse={onEdit || (() => {})}
+            />
             <Button
               variant="ghost"
               size="icon"
@@ -200,7 +211,11 @@ const DraggableCourseItem = memo(function DraggableCourseItem({
   );
 });
 
-export const CourseList = memo(function CourseList({ courses, onDeleteCourse }: CourseListProps) {
+export const CourseList = memo(function CourseList({
+  courses,
+  onDeleteCourse,
+  onEditCourse,
+}: CourseListProps) {
   const [viewMode, setViewMode] = useLocalStorage<ViewMode>("course_list_view_mode", "list");
 
   if (courses.length === 0) {
@@ -277,8 +292,10 @@ export const CourseList = memo(function CourseList({ courses, onDeleteCourse }: 
               <DraggableCourseItem
                 key={course.id}
                 course={course}
+                courses={courses}
                 viewMode={viewMode}
                 onDelete={onDeleteCourse}
+                onEdit={onEditCourse}
               />
             ))}
           </div>

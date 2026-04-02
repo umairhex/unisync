@@ -1,6 +1,7 @@
 export { TimetableGrid } from "./TimetableGrid";
 export { CourseList } from "./CourseList";
 export { AddCourseModal } from "./AddCourseModal";
+export { EditCourseModal } from "./EditCourseModal";
 export { AssignCourseModal } from "./AssignCourseModal";
 export { DeleteCourseModal } from "./DeleteCourseModal";
 export { ImportTimetableModal } from "./ImportTimetableModal";
@@ -9,5 +10,6 @@ export { ClearConfirmationDialog } from "./ClearConfirmationDialog";
 export { CreditsDisplay } from "./CreditsDisplay";
 export { TimetableImageUpload } from "./TimetableImageUpload";
 export { TimetableImageGallery } from "./TimetableImageGallery";
+export { ThemeTogglerButton } from "./ThemeTogglerButton";
 export { ErrorBoundary } from "./ErrorBoundary";
 export { SEO } from "./SEO";

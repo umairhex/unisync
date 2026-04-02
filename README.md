@@ -1,10 +1,10 @@
-# UniSync
+# Calyra
 
 **Smart course scheduling system with drag-drop, conflict prevention, and export to calendar.**
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/umairhex/unisync)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/umairhex/calyra)
 
-![UniSync Scheduler](https://via.placeholder.com/1200x600/667eea/ffffff?text=UniSync+Course+Scheduler)
+![Calyra Scheduler](https://via.placeholder.com/1200x600/667eea/ffffff?text=Calyra+Course+Scheduler)
 
 ---
 
@@ -12,7 +12,7 @@
 
 Students spend **hours** manually creating timetables. Registering for courses is chaos: **conflicts**, overlaps, unbalanced schedules. Building a timetable in Excel or Google Sheets is error-prone and time-consuming. Modern scheduling apps are expensive or unavailable in many regions.
 
-UniSync solves this: **visual drag-drop scheduler** that prevents conflicts and exports to calendar.
+Calyra solves this: **visual drag-drop scheduler** that prevents conflicts and exports to calendar.
 
 **What you get:**
 - 🗓️ Visual weekly grid (like Google Calendar)
@@ -46,7 +46,7 @@ UniSync solves this: **visual drag-drop scheduler** that prevents conflicts and 
 
 ## Architecture Decisions
 
-**Why React 19 + Vite (not Next.js)?** UniSync is a **stateful UI tool**. dnd-kit needs instant feedback on drags. Vite's 60ms HMR is essential for testing drag interactions. React 19's new hooks (`use`) enable Suspense for loading reference images. Result: 3x faster development cycle.
+**Why React 19 + Vite (not Next.js)?** Calyra is a **stateful UI tool**. dnd-kit needs instant feedback on drags. Vite's 60ms HMR is essential for testing drag interactions. React 19's new hooks (`use`) enable Suspense for loading reference images. Result: 3x faster development cycle.
 
 **Why dnd-kit over react-beautiful-dnd?** dnd-kit is:
 - ✅ Actively maintained (rbdnd is in maintenance mode)
@@ -100,8 +100,8 @@ UniSync solves this: **visual drag-drop scheduler** that prevents conflicts and 
 
 ```bash
 # Clone repository
-git clone https://github.com/your-username/unisync.git
-cd unisync
+git clone https://github.com/your-username/calyra.git
+cd calyra
 
 # Install dependencies
 pnpm install
@@ -167,7 +167,7 @@ vercel
 
 ### Drag-Drop to Schedule
 1. Drag course from left panel to weekly grid
-2. UniSync prevents overlaps automatically
+2. Calyra prevents overlaps automatically
 3. Drop to confirm placement
 
 ### Track Credits
@@ -217,7 +217,7 @@ MIT – See [LICENSE](LICENSE) for details.
 
 ---
 
-**Plan your semester smarter.** [Start scheduling →](https://unisync.vercel.app)
+**Plan your semester smarter.** [Start scheduling →](https://calyra.vercel.app)
 
 ---
 

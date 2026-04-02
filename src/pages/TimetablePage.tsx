@@ -19,7 +19,7 @@ import { TimetableImageUpload } from "@/components/TimetableImageUpload";
 import { TimetableImageGallery } from "@/components/TimetableImageGallery";
 import { SEO } from "@/components/SEO";
 import { SettingsModal } from "@/components/SettingsModal";
-import ModeToggle from "@/components/mode-toggle";
+import { ThemeTogglerButton } from "@/components/ThemeTogglerButton";
 import {
   useCourses,
   useTimetable,
@@ -33,7 +33,7 @@ import {
 import { calculateCredits } from "@/utils/credits";
 import { createSlotKey, migrateTimetableOnSettingsChange } from "@/utils/timetable";
 import type { DayOfWeek, TimeSlot, Course } from "@/types";
-import { DndContext, DragOverlay } from "@dnd-kit/core";
+import { DndContext, DragOverlay, pointerWithin } from "@dnd-kit/core";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 
@@ -63,7 +63,8 @@ const ReferenceImagesDescription = () => (
 );
 
 export default function TimetablePage() {
-  const { courses, addCourse, deleteCourse, clearCourses, getCourseById } = useCourses();
+  const { courses, addCourse, updateCourse, deleteCourse, clearCourses, getCourseById } =
+    useCourses();
   const {
     timetable,
     setTimetable,
@@ -167,6 +168,14 @@ export default function TimetablePage() {
     [setCourseToDelete, setDeleteModalOpen],
   );
 
+  const handleEditCourse = useCallback(
+    (courseId: string, updates: Partial<Omit<Course, "id">>) => {
+      updateCourse(courseId, updates);
+      toast.success("Course updated successfully");
+    },
+    [updateCourse],
+  );
+
   const handleImportTimetable = useCallback(
     (
       assignments: {
@@ -259,7 +268,7 @@ export default function TimetablePage() {
 
   return (
     <TooltipProvider>
-      <DndContext {...dragDrop}>
+      <DndContext {...dragDrop} collisionDetection={pointerWithin}>
         <SEO />
         <div className="min-h-screen bg-background">
           <header className="border-b bg-background/80 backdrop-blur-xl sticky top-0 z-50">
@@ -267,14 +276,13 @@ export default function TimetablePage() {
               <div className="flex items-center justify-between gap-2 sm:gap-4">
                 <Link to="/" className="flex items-center gap-2 sm:gap-3">
                   <img
-                    src={
-                      resolvedTheme === "dark"
-                        ? "/unisync-full-white.svg"
-                        : "/unisync-full-dark.svg"
-                    }
-                    alt="UniSync - Return to Landing Page"
+                    src="/calyra-logo.svg"
+                    alt="Calyra - Return to Landing Page"
                     className="h-8 sm:h-10 w-auto object-contain hover:opacity-80 transition-opacity"
                   />
+                  <span className="text-lg sm:text-xl font-bold hover:opacity-80 transition-opacity">
+                    Calyra
+                  </span>
                 </Link>
                 <div className="flex items-center gap-2 sm:gap-3">
                   <SettingsModal
@@ -282,7 +290,11 @@ export default function TimetablePage() {
                     timetable={timetable}
                     onSave={handleSettingsSave}
                   />
-                  <ModeToggle />
+                  <ThemeTogglerButton
+                    variant="outline"
+                    size="icon"
+                    modes={["light", "dark"]}
+                  />
                 </div>
               </div>
             </div>
@@ -382,7 +394,11 @@ export default function TimetablePage() {
 
                     <Separator />
 
-                    <CourseList courses={courses} onDeleteCourse={handleDeleteCourseRequest} />
+                    <CourseList
+                      courses={courses}
+                      onDeleteCourse={handleDeleteCourseRequest}
+                      onEditCourse={handleEditCourse}
+                    />
                   </CardContent>
                 </Card>
               </div>

@@ -43,6 +43,17 @@ export function useCourses() {
     [courses],
   );
 
+  const updateCourse = useCallback(
+    (courseId: string, updates: Partial<Omit<Course, "id">>) => {
+      setCourses((prev) =>
+        prev.map((course) =>
+          course.id === courseId ? { ...course, ...updates } : course,
+        ),
+      );
+    },
+    [setCourses],
+  );
+
   const clearCourses = useCallback(() => {
     setCourses([]);
   }, [setCourses]);
@@ -50,6 +61,7 @@ export function useCourses() {
   return {
     courses,
     addCourse,
+    updateCourse,
     deleteCourse,
     clearCourses,
     getCourseById,

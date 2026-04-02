@@ -264,11 +264,6 @@ export function AssignCourseModal({
                             <Badge variant="secondary" className="text-[10px] px-1 h-5 shrink-0">
                               {course.class}
                             </Badge>
-                            {isAssigned && (
-                              <span className="text-[9px] text-primary font-bold whitespace-nowrap">
-                                Click to update room
-                              </span>
-                            )}
                           </div>
                           {course.faculty && (
                             <span className="text-[10px] text-muted-foreground truncate">

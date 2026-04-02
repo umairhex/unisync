@@ -1,4 +1,4 @@
-# UniSync (autimetable)
+# Calyra (autimetable)
 
 ## Core Idea
 
@@ -8,11 +8,11 @@ University students face a recurring challenge every semester: building their we
 
 ### Solution
 
-UniSync is a fully client-side university course scheduling tool. Students add their courses (manually or via JSON import), then visually arrange them on a Monday-through-Friday time grid using drag-and-drop or click-to-assign interactions. The finished timetable can be exported as a high-quality PNG image. All data stays entirely in the browser — there is no backend, no database, and no account required.
+Calyra is a fully client-side university course scheduling tool. Students add their courses (manually or via JSON import), then visually arrange them on a Monday-through-Friday time grid using drag-and-drop or click-to-assign interactions. The finished timetable can be exported as a high-quality PNG image. All data stays entirely in the browser — there is no backend, no database, and no account required.
 
 ### Value
 
-UniSync eliminates the friction of manual schedule planning by providing an interactive visual grid with instant feedback on credit totals, time conflicts, and classroom assignments. Because everything runs locally, students retain complete privacy over their academic data. The zero-setup nature means students can start building their timetable immediately without registration or installation.
+Calyra eliminates the friction of manual schedule planning by providing an interactive visual grid with instant feedback on credit totals, time conflicts, and classroom assignments. Because everything runs locally, students retain complete privacy over their academic data. The zero-setup nature means students can start building their timetable immediately without registration or installation.
 
 ### User Outcome
 

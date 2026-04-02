@@ -72,8 +72,8 @@ export function useTimetableDragDrop(
 
   return {
     sensors,
-    handleDragStart,
-    handleDragEnd,
+    onDragStart: handleDragStart,
+    onDragEnd: handleDragEnd,
     activeDragCourse,
   };
 }

@@ -12,12 +12,12 @@ interface SEOProps {
 
 export function SEO({
   title,
-  description = "Smart Course Scheduling System for students. autoTIMETABLE helps you manage your university courses and create the perfect weekly schedule in seconds.",
-  name = "TIME",
+  description = "Smart course scheduling system with drag-drop, conflict prevention, and export to calendar. Plan your semester smarter with Calyra.",
+  name = "Calyra",
   type = "website",
-  url = "https://time.umairrx.dev",
+  url = "https://calyra.vercel.app",
   image = "/og-image.png",
-  twitterHandle = "@autimetable",
+  twitterHandle = "@calyra_app",
 }: SEOProps) {
   const siteTitle = title ? `${title} | ${name}` : name;
 
@@ -34,7 +34,7 @@ export function SEO({
       price: "0",
       priceCurrency: "USD",
     },
-    featureList: "Course Scheduling, Timetable Management, Conflict Detection, Export to Image",
+    featureList: "Drag-Drop Scheduling, Visual Weekly Grid, Conflict Detection, Credit Tracking, Reference Images, Export as PNG, Dark Mode, Local Persistence",
   };
 
   return (
