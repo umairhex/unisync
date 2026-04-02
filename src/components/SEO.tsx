@@ -29,6 +29,18 @@ export function SEO({
     description: description,
     applicationCategory: "Productivity",
     operatingSystem: "Web",
+    author: {
+      "@type": "Person",
+      name: "UmairHex",
+      url: "https://umairrx.dev",
+      email: "umairniazidev@gmail.com",
+      sameAs: [
+        "https://github.com/umairhex",
+        "https://www.linkedin.com/in/umairhex",
+        "https://twitter.com/umairhex",
+        "https://www.instagram.com/umairhex",
+      ],
+    },
     offers: {
       "@type": "Offer",
       price: "0",
@@ -41,6 +53,8 @@ export function SEO({
     <Helmet>
       <title>{siteTitle}</title>
       <meta name="description" content={description} />
+      <meta name="author" content="UmairHex" />
+      <meta name="creator" content="UmairHex" />
       <link rel="canonical" href={url} />
 
       <meta property="og:type" content={type} />

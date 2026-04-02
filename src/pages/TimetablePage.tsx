@@ -489,6 +489,25 @@ export default function TimetablePage() {
           </DragOverlay>
         </div>
       </DndContext>
+
+      {/* Footer */}
+      <footer className="border-t mt-8 py-6 px-4 text-center text-sm text-muted-foreground">
+        <div className="max-w-7xl mx-auto space-y-3">
+          <p>
+            Calyra - Smart Course Scheduling | 
+            <a href="https://calyra.umairrx.dev" target="_blank" rel="noopener noreferrer" className="ml-1 hover:text-primary transition-colors">
+              calyra.umairrx.dev
+            </a>
+          </p>
+          <p className="text-xs">
+            Made by{" "}
+            <a href="https://umairrx.dev" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+              UmairHex
+            </a>
+          </p>
+        </div>
+      </footer>
+
       <Toaster position="bottom-right" />
     </TooltipProvider>
   );
